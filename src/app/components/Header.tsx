@@ -130,8 +130,8 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800">
-      <nav className="container mx-auto px-4 py-4 max-w-screen md:max-w-6xl">
+    <header className="fixed top-0 w-full max-w-screen bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800">
+      <nav className="mx-auto px-4 py-4 max-w-screen md:max-w-6xl">
         <div className="flex justify-between items-center">
           {/* Íconos de redes sociales */}
           <div className="flex space-x-4">
@@ -181,7 +181,7 @@ export default function Header() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-xl font-medium transition-colors relative ${
+                className={`cursor-pointer text-xl font-medium transition-colors relative ${
                   activeSection === item.id
                     ? "text-blue-600 dark:text-blue-400"
                     : "text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"

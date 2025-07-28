@@ -1,3 +1,45 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Estilos base */
+@layer base {
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
+  }
+
+  section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* Asegurar que ningún elemento se desborde */
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Utilidades personalizadas para contenedores responsive */
+@layer utilities {
+  .container-responsive {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-none sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl;
+  }
+
+  .container-narrow {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-none sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl;
+  }
+
+  .hidden-on-mobile {
+    @apply hidden sm:block;
+  }
+}

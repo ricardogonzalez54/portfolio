@@ -25,10 +25,10 @@ export default function HeroSection() {
     <>
       {/* Hero Section */}
       <section
-        className="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-blue-50 to-indigo-200 dark:from-gray-800 dark:to-black"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-200 dark:from-gray-800 dark:to-black"
         id="inicio"
       >
-        <div className="container mx-auto px-4 max-w-screen md:max-w-6xl">
+        <div className="container-responsive">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Texto principal */}
             <div className="space-y-8">
@@ -63,7 +63,7 @@ export default function HeroSection() {
                     Ingeniero en Telecomunicaciones
                   </p>
                 </div>
-                <p className="text-lg text-gray-600 dark:text-white max-w-screen md:max-w-lg">
+                <p className="text-lg text-gray-600 dark:text-white">
                   Especializado en <strong>React</strong>,{" "}
                   <strong>TypeScript</strong> y <strong>TailwindCSS</strong>.
                   <br />
@@ -83,23 +83,23 @@ export default function HeroSection() {
               </div>
 
               {/* Tecnologías principales con íconos */}
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between sm:justify-start">
                 <div className="flex items-center gap-6">
                   <div className="flex items-center gap-2">
                     <ReactIcon className="w-8 h-8 text-blue-500" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-50">
+                    <span className="hidden-on-mobile text-sm font-medium text-gray-700 dark:text-gray-50">
                       React
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <TypeScriptIcon className="w-8 h-8 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-50">
+                    <span className="hidden-on-mobile text-sm font-medium text-gray-700 dark:text-gray-50">
                       TypeScript
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <TailwindIcon className="w-8 h-8 text-cyan-500" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-50">
+                    <span className="hidden-on-mobile text-sm font-medium text-gray-700 dark:text-gray-50">
                       Tailwind
                     </span>
                   </div>

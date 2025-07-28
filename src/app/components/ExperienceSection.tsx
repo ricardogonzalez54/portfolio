@@ -161,8 +161,8 @@ export default function ExperienceSection() {
   };
 
   return (
-    <section id="experiencia" className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 max-w-screen md:max-w-6xl">
+    <section id="experiencia" className="bg-gray-50 dark:bg-gray-900">
+      <div className="container-responsive">
         {/* Header de la sección */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
@@ -171,7 +171,7 @@ export default function ExperienceSection() {
               Experiencia Profesional
             </h2>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-screen md:max-w-2xl mx-auto">
+          <p className="container-narrow text-lg text-gray-600 dark:text-gray-300">
             Mi trayectoria en el desarrollo frontend, desde proyectos freelance
             hasta colaboraciones en ciencia de datos y sistemas empresariales.
           </p>

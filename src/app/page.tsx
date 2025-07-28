@@ -26,7 +26,7 @@ export default function Home() {
         <ExperienceSection />
         {/* Sección de vista previa de proyectos */}
         <section id="proyectos" className="py-20 bg-white">
-          <div className="container mx-auto px-4 max-w-screen md:max-w-6xl">
+          <div className="mx-auto px-4 max-w-screen md:max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Proyectos Destacados
@@ -92,8 +92,8 @@ export default function Home() {
         </section>
 
         {/* Call to action final */}
-        <section id="contacto" className="py-20 bg-gray-900 text-white">
-          <div className="container mx-auto px-4 max-w-screen md:max-w-4xl text-center">
+        <section id="contacto" className="bg-gray-900 text-white">
+          <div className="mx-auto px-4 max-w-screen md:max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Tienes un proyecto en mente?
             </h2>
