@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 // Iconos SVG personalizados
 const UserIcon = ({ className }: { className: string }) => (
   <svg
@@ -15,7 +19,7 @@ const UserIcon = ({ className }: { className: string }) => (
   </svg>
 );
 
-const CodeIcon = ({ className }: { className: string }) => (
+const BriefcaseIcon = ({ className }: { className: string }) => (
   <svg
     className={className}
     fill="none"
@@ -26,7 +30,23 @@ const CodeIcon = ({ className }: { className: string }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}
-      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6"
+    />
+  </svg>
+);
+
+const LightbulbIcon = ({ className }: { className: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
     />
   </svg>
 );
@@ -37,11 +57,150 @@ const HeartIcon = ({ className }: { className: string }) => (
   </svg>
 );
 
+const TrophyIcon = ({ className }: { className: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+    />
+  </svg>
+);
+
+const ChevronDownIcon = ({ className }: { className: string }) => (
+  <svg
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M19 9l-7 7-7-7"
+    />
+  </svg>
+);
+
+// Datos de las tarjetas
+const aboutCards = [
+  {
+    id: "professional",
+    title: "Ámbito Profesional",
+    icon: BriefcaseIcon,
+    iconColor: "text-blue-600 dark:text-blue-400",
+    content:
+      "Soy Ricardo, un apasionado por el desarrollo tecnológico, titulado de Ingeniería Civil en Telecomunicaciones y especializado en desarrollo de software, porque creo en su capacidad de impactar positivamente la vida de las personas.",
+  },
+  {
+    id: "logic",
+    title: "Lógica y Curiosidad",
+    icon: LightbulbIcon,
+    iconColor: "text-yellow-600 dark:text-yellow-400",
+    content:
+      "Desde el colegio me fascinan las matemáticas, la física y la lógica. Siempre sentí una inclinación natural por resolver problemas, entender cómo funcionan las cosas y buscar patrones. Me considero muy estudioso y curioso; disfruto aprender por el simple placer de entender, y valoro el conocimiento en todas sus formas.",
+  },
+  {
+    id: "interests",
+    title: "Otros Intereses",
+    icon: HeartIcon,
+    iconColor: "text-red-500",
+    content:
+      "Más allá de la programación, también me interesan la filosofía, el cine, la música, los deportes electrónicos y el entrenamiento físico. Me gusta explorar distintas áreas del conocimiento y las experiencias que ofrecen distintas disciplinas.",
+  },
+  {
+    id: "competitiveness",
+    title: "Competitividad y Autoexigencia",
+    icon: TrophyIcon,
+    iconColor: "text-green-600 dark:text-green-400",
+    content:
+      "Tengo una personalidad bastante autoexigente y competitiva, lo que me impulsa a profundizar en cada disciplina que practico. Cuando algo me interesa, me involucro de verdad: investigo, practico y estudio hasta sentir que estoy haciendo las cosas con un estándar alto. Disfruto ese proceso.",
+  },
+];
+
+interface AboutCardProps {
+  card: (typeof aboutCards)[0];
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+const AboutCard = ({ card, isOpen, onToggle }: AboutCardProps) => {
+  const { title, icon: Icon, iconColor, content } = card;
+
+  return (
+    <div
+      className={`bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 ${
+        isOpen ? "h-auto" : "h-24"
+      }`}
+    >
+      <button
+        onClick={onToggle}
+        className={`cursor-pointer w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl ${
+          isOpen ? "p-6" : "p-6 h-full"
+        }`}
+      >
+        <div className="flex items-center justify-between h-full">
+          <div className="flex items-center space-x-4">
+            <div className="flex-shrink-0">
+              <Icon className={`w-8 h-8 ${iconColor}`} />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+              {title}
+            </h3>
+          </div>
+          <ChevronDownIcon
+            className={`w-6 h-6 text-gray-500 dark:text-gray-400 transition-transform duration-300 flex-shrink-0 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+      </button>
+
+      <div
+        className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${
+          isOpen
+            ? "max-h-96 opacity-100 transition-all delay-150" // opacity se anima CON delay
+            : "max-h-0 opacity-0" // opacity cambia instantáneamente, sin transition-opacity
+        }`}
+      >
+        <div className="px-6 pb-6">
+          <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
+              {content}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function AboutSection() {
+  const [openCards, setOpenCards] = useState<Set<string>>(new Set());
+
+  const toggleCard = (cardId: string) => {
+    setOpenCards((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(cardId)) {
+        newSet.delete(cardId);
+      } else {
+        newSet.add(cardId);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <section
       id="sobre-mi"
-      className="bg-gradient-to-br from-gray-50 to-blue-100 dark:from-gray-900 dark:to-gray-800"
+      className="bg-gradient-to-br from-gray-50 to-blue-100 dark:from-gray-950 dark:to-gray-800"
     >
       <div className="container-responsive">
         {/* Header de la sección */}
@@ -52,126 +211,24 @@ export default function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Contenido principal */}
-          <div className="space-y-6">
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
-                Apasionado del desarrollo tecnológico, estudié
-                Telecomunicaciones pero decidé enfocarme en el software,
-                motivado por su capacidad de impactar positivamente la vida de
-                las personas. Mi experiencia está centrada en el frontend con
-                React y TypeScript. He trabajado en proyectos web como sistemas
-                de punto de venta, e-commerce y visualizadores de datos. Abierto
-                a la mejora continua a través de nuevas tecnologías, busco
-                aportar con compromiso y un enfoque en la experiencia de usuario
-                al diseño y creación de nuevas soluciones.
-              </p>
-
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Cuando no estoy programando, me gusta mantenerme actualizado con
-                las últimas tendencias tecnológicas, contribuir a proyectos open
-                source, y explorar nuevas herramientas que puedan mejorar mi
-                flujo de trabajo y la calidad de mis proyectos.
-              </p>
-            </div>
-
-            {/* Características destacadas */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-              <div className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                <CodeIcon className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                    Clean Code
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs">
-                    Código limpio y mantenible
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                <HeartIcon className="w-6 h-6 text-red-500 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                    UX/UI Focus
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs">
-                    Centrado en la experiencia
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Imagen o elementos visuales */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Imagen de workspace o coding setup */}
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-1 shadow-2xl">
-                <div className="w-full h-full bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center">
-                  {/* Puedes reemplazar esto con una imagen real de tu setup */}
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto flex items-center justify-center">
-                      <CodeIcon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Frontend Developer
-                      </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        React • TypeScript • Tailwind
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Elementos decorativos */}
-              <div
-                aria-hidden="true"
-                className="absolute -top-4 -right-4 w-8 h-8 bg-purple-500 rounded-full"
-              ></div>
-              <div
-                aria-hidden="true"
-                className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400 rounded-full"
-              ></div>
-              <div
-                aria-hidden="true"
-                className="absolute top-1/2 -left-6 w-4 h-4 bg-green-400 rounded-full"
-              ></div>
-            </div>
-          </div>
+        {/* Grid de tarjetas */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {aboutCards.map((card) => (
+            <AboutCard
+              key={card.id}
+              card={card}
+              isOpen={openCards.has(card.id)}
+              onToggle={() => toggleCard(card.id)}
+            />
+          ))}
         </div>
 
-        {/* Stats personales */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-              Curiosidad
-            </div>
-            <div className="text-gray-600 dark:text-gray-300 font-medium">
-              Siempre aprendiendo
-            </div>
-          </div>
-
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
-              Calidad
-            </div>
-            <div className="text-gray-600 dark:text-gray-300 font-medium">
-              Atención al detalle
-            </div>
-          </div>
-
-          <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
-              Innovación
-            </div>
-            <div className="text-gray-600 dark:text-gray-300 font-medium">
-              Soluciones creativas
-            </div>
-          </div>
+        {/* Texto opcional de cierre */}
+        <div className="mt-16 text-center max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
+            Explora cada aspecto para conocer más sobre mi trayectoria y
+            pasiones
+          </p>
         </div>
       </div>
     </section>

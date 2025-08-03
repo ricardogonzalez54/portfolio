@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { navItems, sections } from "@/app/lib/sections";
 import { useTheme } from "next-themes";
+import { scrollToSection } from "../lib/scrollToSection";
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -13,23 +14,6 @@ export default function Header() {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  // Función para hacer scroll suave a una sección
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    const header = document.querySelector("header");
-
-    if (element && header) {
-      const headerHeight = header.offsetHeight;
-      const margin = 0; // margen adicional. Creo que sin margen de offset se ve mejor
-      const offsetTop = element.offsetTop - headerHeight - margin;
-
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
 
   // Función para cambiar el tema
   const toggleTheme = () => {

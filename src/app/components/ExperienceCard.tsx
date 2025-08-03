@@ -57,7 +57,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
   return (
     <div className={`lg:w-1/2 ${index % 2 === 0 ? "lg:pl-8" : "lg:pr-8"}`}>
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 lg:p-8 border border-gray-100 dark:border-gray-700">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 lg:p-8 border border-gray-100 dark:border-gray-700">
         {/* Header de la tarjeta */}
         <div className="flex flex-wrap items-start justify-between mb-4">
           <div className="flex-1 min-w-0">

@@ -23,7 +23,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experiencia"
-      className="bg-gradient-to-bl from-indigo-100 to-purple-50 dark:from-black dark:to-purple-950"
+      className="bg-gradient-to-bl from-indigo-200 to-purple-50 dark:from-black dark:to-purple-950"
     >
       <div className="container-responsive">
         {/* Header de la sección */}

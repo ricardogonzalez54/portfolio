@@ -50,7 +50,7 @@ const ResponsibilitiesSection: React.FC<ResponsibilitiesSectionProps> = ({
       <button
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
-        className="cursor-pointer w-full flex items-center justify-between font-semibold text-gray-900 dark:text-white mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+        className="cursor-pointer w-full flex items-center justify-between font-semibold text-gray-900 dark:text-white mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150"
       >
         <div className="flex items-center">
           <CodeIcon />

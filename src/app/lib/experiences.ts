@@ -16,7 +16,7 @@ export const experiences: Experience[] = [
     {
       id: 1,
       title: "Plataforma ERP + Punto de Venta",
-      company: "Desarrollador Frontend",
+      company: "Maderas Lawal",
       period: "Enero 2025 - Presente",
       location: "Remoto / Concepción, Chile",
       type: "Colaboración",
@@ -74,8 +74,8 @@ export const experiences: Experience[] = [
     },
     {
       id: 3,
-      title: "Desarrollador Frontend",
-      company: "Proyecto E-commerce con Astro",
+      title: "Proyecto E-commerce con Astro",
+      company: "Freelance",
       period: "Marzo 2025 - Abril 2025",
       location: "Remoto",
       type: "Colaboración",

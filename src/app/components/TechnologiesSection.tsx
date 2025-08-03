@@ -55,20 +55,26 @@ interface TechnologyCardProps {
 const TechnologyCard = ({ name, logo }: TechnologyCardProps) => {
   return (
     <div className="group bg-transparen rounded-xl">
-      <div className="flex flex-col items-center text-center space-y-4">
+      <div
+        className="flex flex-col items-center justify-center text-center space-y-4 rounded-lg p-5    
+                      shadow-md hover:shadow-2xl                  
+                      bg-gray-50 dark:bg-gray-900 
+                      hover:bg-white dark:hover:bg-gray-800
+                      dark:border dark:border-gray-600                     
+                      transition-all duration-300 
+                      "
+      >
         {/* Logo */}
-        <div className="w-12 h-12 flex items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-lg group-hover:scale-120 transition-transform duration-300">
-          <Image
-            src={`/logos/${logo}`}
-            alt={`Logo de ${name}`}
-            width={45}
-            height={45}
-            className="w-10 h-10 object-contain"
-          />
-        </div>
+        <Image
+          src={`/logos/${logo}`}
+          alt={`Logo de ${name}`}
+          width={45}
+          height={45}
+          className="w-10 h-10 object-contain group-hover:scale-130 transition-transform duration-300"
+        />
 
         {/* Nombre */}
-        <h3 className="font-semibold text-gray-900 dark:text-white text-lg">
+        <h3 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg">
           {name}
         </h3>
       </div>

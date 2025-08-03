@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import VerSkillsButton from "./VerSkillsButton";
 
 export default function HeroSection() {
   return (
@@ -74,7 +75,7 @@ export default function HeroSection() {
                       height={32}
                       className="w-8 h-8"
                     />
-                    <span className="hidden-on-mobile text-sm font-medium text-gray-700 dark:text-gray-50">
+                    <span className="hidden-on-mobile text-base font-medium text-gray-700 dark:text-gray-50">
                       React
                     </span>
                   </div>
@@ -86,7 +87,7 @@ export default function HeroSection() {
                       height={32}
                       className="w-8 h-8"
                     />
-                    <span className="hidden-on-mobile text-sm font-medium text-gray-700 dark:text-gray-50">
+                    <span className="hidden-on-mobile text-base font-medium text-gray-700 dark:text-gray-50">
                       TypeScript
                     </span>
                   </div>
@@ -98,31 +99,12 @@ export default function HeroSection() {
                       height={32}
                       className="w-8 h-8"
                     />
-                    <span className="hidden-on-mobile text-sm font-medium text-gray-700 dark:text-gray-50">
+                    <span className="hidden-on-mobile text-base font-medium text-gray-700 dark:text-gray-50">
                       Tailwind
                     </span>
                   </div>
+                  <VerSkillsButton />
                 </div>
-
-                <Link
-                  href="/skills"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
-                >
-                  Ver todas
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
               </div>
             </div>
 
