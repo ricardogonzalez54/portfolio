@@ -5,7 +5,7 @@ const VerSkillsButton = () => {
   return (
     <button
       onClick={() => scrollToSection("tecnologías")}
-      className="hover:cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-black dark:text-gray-400  dark:border-gray-700 rounded-md hover:text-blue-60 dark:hover:text-gray-100 transition-all duration-200"
+      className="cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-black dark:text-gray-400  dark:border-gray-700 rounded-md hover:text-blue-600 dark:hover:text-gray-100 transition-all duration-200"
     >
       Ver todas
       <svg
