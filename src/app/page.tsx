@@ -1,10 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/app/components/Header";
 import HeroSection from "@/app/components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ExperienceSection from "@/app/components/ExperienceSection";
+import ProjectsSection from "./components/ProjectsSection";
 import TechnologiesSection from "./components/TechnologiesSection";
 import ContactSection from "./components/ContactSection";
 
@@ -26,9 +25,10 @@ export default function Home() {
       <Header />
       <main className="min-h-screen max-w-screen">
         <HeroSection />
-        <AboutSection /> {/* Nueva sección */}
+        <AboutSection />
         <ExperienceSection />
-        <TechnologiesSection /> {/* Nueva sección */}
+        <ProjectsSection />
+        <TechnologiesSection />
         <ContactSection />
       </main>
     </>
