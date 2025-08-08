@@ -122,9 +122,12 @@ export default function Header() {
   return (
     <header className="fixed top-0 w-full max-w-screen bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800">
       <nav className="mx-auto px-4 py-4 max-w-screen md:max-w-6xl">
+        {/* Contenedor de la sección izquierda y derecha del NavBar */}
         <div className="flex justify-between items-center">
-          {/* Íconos de redes sociales */}
-          <div className="flex space-x-4">
+          {/* Sección Izquierda del NavBar. Botón de Tema y Redes Sociales */}
+          <div className="flex items-center space-x-4">
+            {/* Botón de cambio de tema */}
+            <ThemeToggleButton />
             <a
               href="https://github.com/ricardogonzalez54"
               target="_blank"
@@ -160,18 +163,13 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Botón de cambio de tema (centrado) */}
-          <div className="flex items-center">
-            <ThemeToggleButton />
-          </div>
-
           {/* Navegación */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`cursor-pointer text-xl font-medium transition-colors relative ${
+                className={`cursor-pointer text-md lg:text-xl font-medium transition-colors relative ${
                   activeSection === item.id
                     ? "text-blue-600 dark:text-blue-400"
                     : "text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"

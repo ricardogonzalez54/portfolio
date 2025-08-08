@@ -1,6 +1,7 @@
 import React from "react";
 import { Experience } from "@/app/lib/experiences";
 import ResponsibilitiesSection from "@/app/components/ResponsibilitiesSection";
+import NavToProjectButton from "./NavToProjectButton";
 
 // Iconos SVG personalizados
 const CalendarIcon = () => (
@@ -15,22 +16,6 @@ const CalendarIcon = () => (
       strokeLinejoin="round"
       strokeWidth={2}
       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-    />
-  </svg>
-);
-
-const CodeIcon = () => (
-  <svg
-    className={"mr-2 w-4 h-4"}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
     />
   </svg>
 );
@@ -115,10 +100,18 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         {/* Nota adicional si existe */}
         {experience.note && (
           <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 dark:border-amber-500 rounded-r">
-            <p className="text-sm text-amber-700 dark:text-amber-300 font-medium">
+            <p className="text-sm text-amber-600 dark:text-amber-200 font-medium">
               📌 {experience.note}
             </p>
           </div>
+        )}
+
+        {/* Botón para navegar hacia el proyecto, si existe un proyecto asociado a la experiencia */}
+        {experience.projectId && (
+          <NavToProjectButton
+            projectId={experience.projectId}
+            applyMt={experience.note ? true : false}
+          />
         )}
       </div>
     </div>

@@ -1,3 +1,5 @@
+import { projectIds } from "./projects";
+
 // Tipo para la experiencia (puedes moverlo a un archivo types.ts si prefieres)
 export interface Experience {
   id: number;
@@ -10,12 +12,13 @@ export interface Experience {
   responsibilities: string[];
   technologies: string[];
   note?: string;
+  projectId?: (typeof projectIds)[number];
 }
 
 export const experiences: Experience[] = [
     {
       id: 1,
-      title: "Plataforma ERP + Punto de Venta",
+      title: "Frontend Developer",
       company: "Maderas Lawal",
       period: "Enero 2025 - Presente",
       location: "Remoto / Concepción, Chile",
@@ -45,6 +48,8 @@ export const experiences: Experience[] = [
         "NodeJS",
         "react-oidc-context"
       ],
+      projectId: 'point-of-sale',
+
     },
     {
       id: 2,
@@ -71,10 +76,12 @@ export const experiences: Experience[] = [
         "HTML",
         "CSS",
       ],
+      projectId: 'traffic-visualization',
+
     },
     {
       id: 3,
-      title: "Proyecto E-commerce con Astro",
+      title: "Astro Frontend Developer",
       company: "Freelance",
       period: "Marzo 2025 - Abril 2025",
       location: "Remoto",
@@ -88,6 +95,7 @@ export const experiences: Experience[] = [
         "Estilos con Tailwind CSS para una experiencia de usuario optimizada",
       ],
       technologies: ["Astro", "React", "Zustand", "Tailwind CSS", "TypeScript"],
-      note: "Proyecto pausado por decisiones del cliente",
+      note: "Proyecto pausado por decisiones del cliente",  
+      projectId: 'ecommerce-platform',
     },
   ];
