@@ -17,14 +17,10 @@ export default function ProjectsSection() {
               Proyectos
             </h2>
           </div>
-          <p className="container-narrow text-lg text-gray-600 dark:text-gray-300">
-            Una selección de proyectos que demuestran mis habilidades en
-            desarrollo frontend y la aplicación de tecnologías modernas.
-          </p>
         </div>
 
         {/* Grid de proyectos - 2 columnas en móvil, 4 en desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

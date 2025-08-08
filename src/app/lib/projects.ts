@@ -1,3 +1,6 @@
+// Las ids de los proyectos deben existir en este arreglo
+export const projectIds = ['point-of-sale','dashboard','traffic-visualization','ecommerce-platform'] as const;
+
 // Definición de tipos
 export interface Technology {
   name: string;
@@ -5,9 +8,10 @@ export interface Technology {
 }
 
 export interface Project {
-  id: string;
+  id: (typeof projectIds)[number]; // Deben ser elementos del arreglo projectIds
   title: string;
   image: string;
+  imageZoom?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   video: string;
   technologies: Technology[];
   description: string;
@@ -115,7 +119,8 @@ export const projects: Project[] = [
   {
     id: "point-of-sale",
     title: "Punto de Venta",
-    image: "/projects/point-of-sale.jpg",
+    image: "/projects/images/point-of-sale.webp",
+    imageZoom: 'bottom-right',
     video: "/videos/point-of-sale.webm",
 
 
@@ -136,8 +141,8 @@ export const projects: Project[] = [
   {
     id: "dashboard",
     title: "Dashboard analíticas Ventas e Inventario",
-    image: "/projects/dashboard.jpg",
-    video: "/projects/dashboard.webm",
+    image: "/projects/images/dashboard.webp",
+    video: "/projects/videos/dashboard.webm",
     technologies: [
       ReactTech,
       TypeScriptTech,
@@ -152,8 +157,9 @@ export const projects: Project[] = [
   {
     id: "traffic-visualization",
     title: "Visualización de Datos Históricos de Tráfico",
-    image: "/projects/traffic-visualization.jpg",
-    video: "/projects/traffic-visualization.webm",
+    image: "/projects/images/traffic-visualization.webp",
+    imageZoom: 'top-left',
+    video: "/projects/videos/traffic-visualization.webm",
     technologies: [
       HTMLTech,
       CSSTech,
@@ -164,13 +170,13 @@ export const projects: Project[] = [
       MapboxGLJSTech
     ],
     description: "Plataforma web para visualizar y explorar datos espacio-temporales de tráfico mediante filtros y animaciones.",
-    extraDescription: "Permite la interacción dinámica con grandes volúmenes de datos espacio-temporales extraídos desde una base de datos PostgreSQL. El usuario puede aplicar filtros temporales para un análisis granular, o generar animaciones cronológicas que muestran la evolución del tráfico en períodos de interés."
+    extraDescription: "El usuario puede aplicar filtros temporales para un análisis granular, o generar animaciones cronológicas que muestran la evolución del tráfico en períodos de interés."
   },
   {
     id: "ecommerce-platform",
     title: "E-commerce Platform",
-    image: "/projects/ecommerce-project.jpg",
-    video: "/projects/ecommerce-project.webm",
+    image: "/projects/images/ecommerce-project.webp",
+    video: "/projects/videos/ecommerce-project.webm",
     technologies: [
       AstroTech,
       TailwindTech,

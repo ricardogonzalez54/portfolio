@@ -30,7 +30,7 @@
 /* Utilidades personalizadas para contenedores responsive */
 @layer utilities {
   .container-responsive {
-    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full mx-auto px-10 sm:px-8;
     @apply max-w-none sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl;
   }
 

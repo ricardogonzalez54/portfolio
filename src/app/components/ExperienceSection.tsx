@@ -72,10 +72,10 @@ export default function ExperienceSection() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
             <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-              +1
+              +1.5
             </div>
             <div className="text-gray-600 dark:text-gray-300 font-medium">
-              Año de Experiencia
+              Años de Experiencia
             </div>
           </div>
           <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
